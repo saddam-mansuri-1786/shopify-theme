@@ -9,6 +9,90 @@
  */
 {
   "sections": {
+    "custom_slider": {
+      "type": "custom-image-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/weed-control.jpg"
+          }
+        },
+        "image_9qC7je": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mosquito-control.jpg"
+          }
+        },
+        "slide_2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/organic-lawn-care.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "image_9qC7je",
+        "slide_2"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide1": {
+          "type": "slide",
+          "settings": {
+            "heading": "First Slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide2": {
+          "type": "slide",
+          "settings": {
+            "heading": "Second Slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide1",
+        "slide2"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -36,6 +120,8 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Kim_C._Testimonial.jpg",
+        "image_2": "shopify://shop_images/IMG_20250508_165240.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
@@ -48,15 +134,88 @@
         "show_text_below": false
       }
     },
+    "collection_list_qG4QVq": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_MQWKhf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_tyHPkT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_czWz4w": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_MQWKhf",
+        "featured_collection_tyHPkT",
+        "featured_collection_czWz4w"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_h4hi8H": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HhF7zW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Look and Feel Your Lawn with Grass Rootz",
+            "heading_size": "h1"
+          }
+        },
+        "text_qqP4fb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Product beats all I have done, .sod, great fertilizer company, this product is amazing!!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HhF7zW",
+        "text_qqP4fb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 12
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "frontpage",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -75,10 +234,229 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "image_with_text_URNTHa": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hmmQc3": {
+          "type": "heading",
+          "settings": {
+            "heading": "product result",
+            "heading_size": "h1"
+          }
+        },
+        "text_YcRYgb": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>“</strong> I am on my third application of the Grass Rootz lawn program and I can clearly see a difference in the thickness of my lawn. The vibrancy of my grass as well as its lushness is truly noticable! It feels so good not having the yellow flags showing I applied chemicals on my lawn....I now have a sense of comfort knowing what I'm spraying is safe for my family and dogs. I'm a busy mom of 3 and I find applying this product so easy and efficient! Anyone can do it! My neighbors have noticed the quality of our lawn and now want it for themselves! Our whole street is going to have the most beautiful lawns in town thanks to Grass Rootz! <strong>”</strong></p>",
+            "text_style": "body"
+          }
+        },
+        "button_WHAcqn": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hmmQc3",
+        "text_YcRYgb",
+        "button_WHAcqn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_20250513_170447.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_qbChyi": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_xybHbT": {
+          "type": "heading",
+          "settings": {
+            "heading": "product result",
+            "heading_size": "h1"
+          }
+        },
+        "text_aht8Bc": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>“</strong> I am on my third application of the Grass Rootz lawn program and I can clearly see a difference in the thickness of my lawn. The vibrancy of my grass as well as its lushness is truly noticable! It feels so good not having the yellow flags showing I applied chemicals on my lawn....I now have a sense of comfort knowing what I'm spraying is safe for my family and dogs. I'm a busy mom of 3 and I find applying this product so easy and efficient! Anyone can do it! My neighbors have noticed the quality of our lawn and now want it for themselves! Our whole street is going to have the most beautiful lawns in town thanks to Grass Rootz! <strong>”</strong></p>",
+            "text_style": "body"
+          }
+        },
+        "button_WzphJA": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xybHbT",
+        "text_aht8Bc",
+        "button_WzphJA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_6582.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "collage_T3wmDX": {
+      "type": "collage",
+      "blocks": {
+        "image_g6zVUh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/organic-lawn-care.jpg"
+          }
+        },
+        "product_tiXQXX": {
+          "type": "product",
+          "settings": {
+            "product": "root-grass-growz-treatments",
+            "second_image": false
+          }
+        },
+        "collection_tBcqiE": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "image_g6zVUh",
+        "product_tiXQXX",
+        "collection_tBcqiE"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Our Trusted Products",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_pMyD4F": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "How to Mix Our Solution",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/Grass Rootz Sprayer Video - 1741291692951.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_BQktmP": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "heading": "Behind the Scenes: Our Process for Grass Rootz",
+        "heading_size": "h2",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "newsletter_PNyXR6": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_ftBpqG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_JNqFdT": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.</p>"
+          }
+        },
+        "email_form_GCVYt8": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_ftBpqG",
+        "paragraph_JNqFdT",
+        "email_form_GCVYt8"
+      ],
+      "custom_css": [
+        ".center {margin-bottom: 70px; margin-top: 35px;}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 44
+      }
     }
   },
   "order": [
+    "custom_slider",
+    "slideshow",
     "image_banner",
-    "featured_collection"
+    "collection_list_qG4QVq",
+    "rich_text_h4hi8H",
+    "featured_collection",
+    "image_with_text_URNTHa",
+    "image_with_text_qbChyi",
+    "collage_T3wmDX",
+    "video_pMyD4F",
+    "featured_blog_BQktmP",
+    "newsletter_PNyXR6"
   ]
 }

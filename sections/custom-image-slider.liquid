@@ -1,0 +1,41 @@
+<div class="custom-slider">
+  {% for block in section.blocks %}
+    <div class="slide">
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url: width: 1500 }}" alt="Slide image" loading="lazy" />
+      {% else %}
+        <!-- Fallback placeholder if no image is uploaded -->
+        <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/placeholder.jpg" alt="Placeholder image" loading="lazy" />
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Slider",
+  "tag": "section",
+  "class": "custom-image-slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Custom Image Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
