@@ -9,36 +9,6 @@
  */
 {
   "sections": {
-    "custom_slider": {
-      "type": "custom-image-slider",
-      "blocks": {
-        "slide_1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/weed-control.jpg"
-          }
-        },
-        "image_9qC7je": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/mosquito-control.jpg"
-          }
-        },
-        "slide_2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/organic-lawn-care.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "slide_1",
-        "image_9qC7je",
-        "slide_2"
-      ],
-      "disabled": true,
-      "settings": {}
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -407,6 +377,79 @@
         "padding_bottom": 36
       }
     },
+    "image_slider_EntkPm": {
+      "type": "image-slider",
+      "blocks": {
+        "image_NA7b6r": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_BWrT6N": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_GeQRp9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_3FcxGb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_rDqniY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_3eVQKP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_PAp3tp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SprayerPictureCropped12-31-24.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_NA7b6r",
+        "image_BWrT6N",
+        "image_GeQRp9",
+        "image_3FcxGb",
+        "image_rDqniY",
+        "image_3eVQKP",
+        "image_PAp3tp"
+      ],
+      "name": "Image Slider",
+      "settings": {
+        "heading": "Image gallery",
+        "image_ratio": "cover",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "images_per_row": 6,
+        "autoplay": true,
+        "autoplay_speed": 3000
+      }
+    },
     "newsletter_PNyXR6": {
       "type": "newsletter",
       "blocks": {
@@ -443,10 +486,63 @@
         "padding_top": 40,
         "padding_bottom": 44
       }
+    },
+    "image_gallery_9cjb6a": {
+      "type": "image-gallery",
+      "blocks": {
+        "image_XqiBXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mosquito-control.jpg"
+          }
+        },
+        "image_WFeetr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/organic-lawn-care.jpg"
+          }
+        },
+        "image_AdQTmW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/weed-control.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_XqiBXi",
+        "image_WFeetr",
+        "image_AdQTmW"
+      ],
+      "disabled": true,
+      "name": "image gallery",
+      "settings": {
+        "section_heading": "Image Gallery",
+        "section_heading_size": "h3",
+        "section_heading_weight": "--fw-bold",
+        "section_description": "Experience the Elegance and Style in Every Image",
+        "description_text_size": "text-size--large",
+        "section_description_weight": "--fw-normal",
+        "max_header_size": 100,
+        "caption_content_alignment": "mcenter",
+        "caption": "Follow on Instagram",
+        "button_label": "Follow ON INSTAGRAM",
+        "type": "secondary",
+        "url": "",
+        "open_new_window": true,
+        "section_full_width": true,
+        "remove_grid_spacing": true,
+        "section_text_alignment": "center",
+        "section_color_scheme": "",
+        "marquee_speed": 15,
+        "marquee_direction": "marquee_backward",
+        "marquee_on_hover": false,
+        "section_top_padding": 60,
+        "section_bottom_padding": 60
+      }
     }
   },
   "order": [
-    "custom_slider",
     "slideshow",
     "image_banner",
     "collection_list_qG4QVq",
@@ -457,6 +553,8 @@
     "collage_T3wmDX",
     "video_pMyD4F",
     "featured_blog_BQktmP",
-    "newsletter_PNyXR6"
+    "image_slider_EntkPm",
+    "newsletter_PNyXR6",
+    "image_gallery_9cjb6a"
   ]
 }
