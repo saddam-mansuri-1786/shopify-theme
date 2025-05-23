@@ -1,0 +1,140 @@
+{% comment %} Tab Slider Section {% endcomment %}
+<div class="tab-slider-wrapper">
+  <!-- Tabs -->
+  <div class="tab-buttons">
+    {% for block in section.blocks %}
+      <button 
+        class="tab-button {% if forloop.first %}active{% endif %}" 
+        data-tab="tab-{{ forloop.index }}">
+        {{ block.settings.tab_title }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <!-- Slider Content -->
+  <div class="tab-sliders">
+    {% for block in section.blocks %}
+      <div 
+        class="tab-content {% if forloop.first %}active{% endif %}" 
+        id="tab-{{ forloop.index }}">
+
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'large' }}" alt="Tab Image">
+        {% endif %}
+        <p>{{ block.settings.tab_content }}</p>
+
+        <!-- Collections -->
+        <div class="collections-wrapper">
+          {% for collection in block.settings.collection_1 %}
+            <div class="collection-item">
+              <h3>{{ collection.title }}</h3>
+              
+              {% if collection.image %}
+                <a href="{{ collection.url }}">
+                  <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }}">
+                </a>
+              {% endif %}
+
+              {% if collection.description %}
+                <p>{{ collection.description }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Tab Slider Script -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".tab-button");
+  const contents = document.querySelectorAll(".tab-content");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active class
+      buttons.forEach(btn => btn.classList.remove("active"));
+      contents.forEach(content => content.classList.remove("active"));
+
+      // Add active class to selected
+      button.classList.add("active");
+      const tabId = button.getAttribute("data-tab");
+      document.getElementById(tabId).classList.add("active");
+    });
+  });
+});
+</script>
+
+<style>
+.tab-slider-wrapper { text-align: center; }
+.tab-buttons { margin-bottom: 20px; }
+.tab-button {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}
+.tab-button.active { background: #000; color: #fff; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.tab-content img { max-width: 100%; margin: 10px auto; }
+.collections-wrapper { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.collection-item { text-align: center; border: 1px solid #eaeaea; padding: 15px; max-width: 300px; }
+.collection-item img { max-width: 100%; margin-bottom: 10px; }
+.collection-item h3 { font-size: 1.2em; margin-bottom: 10px; }
+.collection-item p { font-size: 0.9em; color: #555; }
+</style>
+
+{% schema %}
+{
+  "name": "Tab Slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title"
+        },
+        {
+          "type": "textarea",
+          "id": "tab_content",
+          "label": "Tab Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "collection_list",
+          "id": "collection_1",
+          "label": "Select Collections"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab Slider",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "tab"
+        },
+        {
+          "type": "tab" 
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
