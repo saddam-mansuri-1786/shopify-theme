@@ -145,6 +145,46 @@
         "padding_bottom": 36
       }
     },
+    "collage_T3wmDX": {
+      "type": "collage",
+      "blocks": {
+        "image_g6zVUh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/img.jpg"
+          }
+        },
+        "product_tiXQXX": {
+          "type": "product",
+          "settings": {
+            "product": "root-grass-growz-treatments",
+            "second_image": false
+          }
+        },
+        "collection_tBcqiE": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        }
+      },
+      "block_order": [
+        "image_g6zVUh",
+        "product_tiXQXX",
+        "collection_tBcqiE"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Our Trusted Products",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "none",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "rich_text_h4hi8H": {
       "type": "rich-text",
       "blocks": {
@@ -260,7 +300,7 @@
         "heading_xybHbT": {
           "type": "heading",
           "settings": {
-            "heading": "product result",
+            "heading": "Look and Feel",
             "heading_size": "h1"
           }
         },
@@ -303,46 +343,6 @@
         "padding_bottom": 60
       }
     },
-    "collage_T3wmDX": {
-      "type": "collage",
-      "blocks": {
-        "image_g6zVUh": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/organic-lawn-care.jpg"
-          }
-        },
-        "product_tiXQXX": {
-          "type": "product",
-          "settings": {
-            "product": "root-grass-growz-treatments",
-            "second_image": false
-          }
-        },
-        "collection_tBcqiE": {
-          "type": "collection",
-          "settings": {
-            "collection": "frontpage"
-          }
-        }
-      },
-      "block_order": [
-        "image_g6zVUh",
-        "product_tiXQXX",
-        "collection_tBcqiE"
-      ],
-      "name": "t:sections.collage.presets.name",
-      "settings": {
-        "heading": "Our Trusted Products",
-        "heading_size": "h1",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "none",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "video_pMyD4F": {
       "type": "video",
       "name": "t:sections.video.presets.name",
@@ -357,6 +357,21 @@
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "blog_section_4GrnFx": {
+      "type": "blog-section",
+      "name": "Blog Highlight",
+      "settings": {
+        "big_image": "shopify://shop_images/grass-treatment.jpg",
+        "small_image": "shopify://shop_images/Grass_Rootz_Funnel.png",
+        "heading": "Grass Rootz Blog",
+        "text": "Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.\nShare information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.\nShare information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "reverse_layout": true,
+        "padding_top": 40,
+        "padding_bottom": 32
       }
     },
     "featured_blog_BQktmP": {
@@ -375,6 +390,147 @@
         "show_view_all": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "image_gallery_9cjb6a": {
+      "type": "image-gallery",
+      "blocks": {
+        "image_XqiBXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mosquito-control.jpg",
+            "caption": ""
+          }
+        },
+        "image_d3QbrR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Kim_C._Testimonial.jpg",
+            "caption": ""
+          }
+        },
+        "image_WFeetr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_20250513_170447.jpg",
+            "caption": ""
+          }
+        },
+        "image_t6PVTn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/organic-lawn-care.jpg",
+            "caption": ""
+          }
+        },
+        "image_AdQTmW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Kim_C._Testimonial.jpg",
+            "caption": ""
+          }
+        },
+        "image_PirxnX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/weed-control.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_XqiBXi",
+        "image_d3QbrR",
+        "image_WFeetr",
+        "image_t6PVTn",
+        "image_AdQTmW",
+        "image_PirxnX"
+      ],
+      "name": "image gallery",
+      "settings": {
+        "heading": "Our Gallery",
+        "image_ratio": "cover",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "images_per_row": 5,
+        "images_per_row_mobile": 2
+      }
+    },
+    "testimonials_slider_GhNAWn": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "testimonial_Pn6kRc": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "bold",
+            "name_font_size": 17,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        },
+        "testimonial_ArfGH8": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        },
+        "testimonial_VA6E4P": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        },
+        "testimonial_hTddgn": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        },
+        "testimonial_BrPQmy": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        },
+        "testimonial_ghUJiP": {
+          "type": "testimonial",
+          "settings": {
+            "name": "– John Doe",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This is an amazing product. Highly recommend!"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Pn6kRc",
+        "testimonial_ArfGH8",
+        "testimonial_VA6E4P",
+        "testimonial_hTddgn",
+        "testimonial_BrPQmy",
+        "testimonial_ghUJiP"
+      ],
+      "name": "Testimonials Slider",
+      "settings": {
+        "heading": "What Our Customers Say",
+        "text_alignment": "left",
+        "font_style": "italic",
+        "background_color": "#ffffff",
+        "text_color": "#555555",
+        "padding_top": 47,
+        "padding_bottom": 58
       }
     },
     "newsletter_PNyXR6": {
@@ -404,93 +560,14 @@
         "email_form_GCVYt8"
       ],
       "custom_css": [
-        ".center {margin-bottom: 70px; margin-top: 35px;}"
+        ".center {margin-bottom: 50px; margin-top: 35px;}"
       ],
       "name": "t:sections.newsletter.presets.name",
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": false,
-        "padding_top": 40,
+        "padding_top": 52,
         "padding_bottom": 44
-      }
-    },
-    "blog_section_4GrnFx": {
-      "type": "blog-section",
-      "name": "Blog Highlight",
-      "settings": {
-        "big_image": "shopify://shop_images/grass-treatment.jpg",
-        "small_image": "shopify://shop_images/Grass_Rootz_Funnel.png",
-        "heading": "CHRONIC BLOG",
-        "text": "From the iconic and award-winning studio, read all about it.",
-        "button_label": "Shop Now",
-        "button_link": "",
-        "reverse_layout": true,
-        "padding_top": 40,
-        "padding_bottom": 32
-      }
-    },
-    "image_gallery_9cjb6a": {
-      "type": "image-gallery",
-      "blocks": {
-        "image_XqiBXi": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/mosquito-control.jpg",
-            "caption": ""
-          }
-        },
-        "image_d3QbrR": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/mosquito-control.jpg",
-            "caption": "Image caption"
-          }
-        },
-        "image_WFeetr": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/organic-lawn-care.jpg",
-            "caption": "Image caption"
-          }
-        },
-        "image_t6PVTn": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/organic-lawn-care.jpg",
-            "caption": "Image caption"
-          }
-        },
-        "image_AdQTmW": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/weed-control.jpg",
-            "caption": "Image caption"
-          }
-        },
-        "image_PirxnX": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/weed-control.jpg",
-            "caption": "Image caption"
-          }
-        }
-      },
-      "block_order": [
-        "image_XqiBXi",
-        "image_d3QbrR",
-        "image_WFeetr",
-        "image_t6PVTn",
-        "image_AdQTmW",
-        "image_PirxnX"
-      ],
-      "name": "image gallery",
-      "settings": {
-        "heading": "Image Slider",
-        "image_ratio": "cover",
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "images_per_row": 5,
-        "images_per_row_mobile": 2
       }
     }
   },
@@ -498,15 +575,16 @@
     "slideshow",
     "image_banner",
     "collection_list_qG4QVq",
+    "collage_T3wmDX",
     "rich_text_h4hi8H",
     "featured_collection",
     "image_with_text_URNTHa",
     "image_with_text_qbChyi",
-    "collage_T3wmDX",
     "video_pMyD4F",
-    "featured_blog_BQktmP",
-    "newsletter_PNyXR6",
     "blog_section_4GrnFx",
-    "image_gallery_9cjb6a"
+    "featured_blog_BQktmP",
+    "image_gallery_9cjb6a",
+    "testimonials_slider_GhNAWn",
+    "newsletter_PNyXR6"
   ]
 }

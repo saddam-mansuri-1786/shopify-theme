@@ -227,7 +227,7 @@
     },
     "media": {
       "name": "Media"
-    },
+    }, 
     "drawers": {
       "name": "Drawers"
     },
@@ -378,8 +378,15 @@
         }
       }
     }
-  },
+  }, 
   "sections": {
+   "testimonials": {
+      "name": "Testimonials",
+      "settings": {
+        "title": "Section Title",
+        "text_align": "Text alignment"
+      }
+    },
     "all": {
       "animation": {
         "content": "Animations",
@@ -456,6 +463,69 @@
         "info": "Standard-styled cards have no borders when an image shape is active."
       }
     },
+    "testimonial": {
+      "name": "Testimonials"
+    },
+    "head": {
+      "content": "Header",
+      "size": {
+        "label": "Max content size"
+      }
+    },
+ "sizes": {
+    "heading": {
+      "label": "Heading size",
+      "options": {
+        "opt_1": {
+          "label": "Extra extra large"
+        },
+        "opt_2": {
+          "label": "Extra large"
+        },
+        "opt_3": {
+          "label": "Large"
+        },
+        "opt_4": {
+          "label": "Medium"
+        },
+        "opt_5": {
+          "label": "Small"
+        },
+        "opt_6": {
+          "label": "Extra small"
+        },
+        "opt_7": {
+          "label": "Extra extra small"
+        }
+      }
+    },
+    "text": {
+      "label": "Text size",
+      "options": {
+        "opt_1": {
+          "label": "Small"
+        },
+        "opt_2": {
+          "label": "Medium"
+        },
+        "opt_3": {
+          "label": "Large"
+        },
+        "opt_4": {
+          "label": "Extra large"
+        }
+      }
+    },
+    "description_text": {
+      "label": "Description text size"
+    },
+    "caption": {
+      "label": "Caption text size"
+    },
+    "title": {
+      "label": "Title text size"
+    }
+  },     
     "announcement-bar": {
       "name": "Announcement bar",
       "settings": {

@@ -1,0 +1,293 @@
+<div class="testimonials-slider" style="padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}">
+  <div class="testimonials-slider-container-wrapper">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="testimonials-slider-container">
+      {% for block in section.blocks %}
+      <div class="testimonial-item"
+        style="
+          text-align: {{ section.settings.text_alignment }};
+          font-style: {% if section.settings.font_style == 'italic' %}italic{% else %}normal{% endif %};
+          font-weight: {% if section.settings.font_style == 'bold' %}bold{% else %}normal{% endif %};
+          background-color: {{ section.settings.background_color }};
+          color: {{ section.settings.text_color }};
+        ">
+        {% if block.settings.name %}
+         <h3 style="font-weight: {{ block.settings.name_font_weight }}; font-size:{{ block.settings.name_font_size }}px;">{{ block.settings.name }}</h3>
+
+          <p>{{ block.settings.testimonial }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="testimonials-slider-controls">
+      <button class="slider-prev">&larr;</button>
+      <button class="slider-next">&rarr;</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonials-slider {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f5f5f5;
+  }
+
+  .testimonials-slider-container-wrapper {
+    max-width: 1090px;
+    margin: 0 auto;
+    overflow: hidden; /* Hide overflow for smooth sliding */
+  }
+
+  .testimonials-slider-container {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+  }
+
+  .testimonial-item {
+    flex: 0 0 calc((100% - 40px) / 3); /* Default: 3 slides per row on desktop */
+    max-width: calc((100% - 40px) / 3);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  .testimonial-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-item h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+
+  .testimonial-item p {
+    font-size: 15px;
+    color: #555;
+  }
+
+  .testimonials-slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .slider-prev,
+  .slider-next {
+    background-color: #9fc2d1;
+    color: #fff;
+    border: none;
+    padding: 0px 10px 10px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size:30px;
+  }
+
+  .slider-prev:hover,
+  .slider-next:hover {
+    background-color: #0056b3;
+  }
+
+  /* Media Queries for Responsive Behavior */
+  @media (max-width: 768px) {
+    .testimonial-item {
+      flex: 0 0 calc((100% - 40px) / 2); /* 2 slides on tablets */
+      max-width: calc((100% - 40px) / 2);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .testimonial-item {
+      flex: 0 0 100%; /* 1 slide per row on mobile */
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sliderContainer = document.querySelector('.testimonials-slider-container');
+    const slides = document.querySelectorAll('.testimonial-item');
+    const prevButton = document.querySelector('.slider-prev');
+    const nextButton = document.querySelector('.slider-next');
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const gap = 20; // Gap between slides
+
+    // Get container width
+    const containerWidth = sliderContainer.parentElement.offsetWidth;
+
+    // Determine slidesToShow based on screen size
+    let slidesToShow = 3; // Default: Desktop
+    if (window.innerWidth <= 768) {
+      slidesToShow = 2; // Tablet
+    }
+    if (window.innerWidth <= 480) {
+      slidesToShow = 1; // Mobile
+    }
+
+    const slideWidth = (containerWidth - gap * (slidesToShow - 1)) / slidesToShow;
+
+    // Set the width for each slide
+    slides.forEach(slide => {
+      slide.style.width = `${slideWidth}px`;
+    });
+
+    const updateSliderPosition = () => {
+      const offset = -(currentIndex * (slideWidth + gap));
+      sliderContainer.style.transform = `translateX(${offset}px)`;
+    };
+
+    const nextSlide = () => {
+      if (currentIndex < totalSlides - slidesToShow) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Loop to the first slide
+      }
+      updateSliderPosition();
+    };
+
+    const prevSlide = () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = totalSlides - slidesToShow; // Loop to the last slide
+      }
+      updateSliderPosition();
+    };
+
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
+
+    // Auto-play functionality
+    // let autoplayInterval = setInterval(nextSlide, 3000); // Change slides every 3 seconds
+
+    // Stop autoplay when mouse is hovering
+    // sliderContainer.addEventListener('mouseenter', () => {
+    //   clearInterval(autoplayInterval);
+    // });
+
+    // sliderContainer.addEventListener('mouseleave', () => {
+    //   autoplayInterval = setInterval(nextSlide, 3000); // Resume autoplay
+    // });
+
+    // Initial slider setup
+    updateSliderPosition();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "font_style",
+      "label": "Font Style",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "italic", "label": "Italic" },
+        { "value": "bold", "label": "Bold" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#555555"
+    },
+    {
+  "type": "range",
+  "id": "padding_top",
+  "label": "Section Padding Top (px)",
+  "min": 0,
+  "max": 100,
+  "default": 50
+},
+{
+  "type": "range",
+  "id": "padding_bottom",
+  "label": "Section Padding Bottom (px)",
+  "min": 0,
+  "max": 100,
+  "default": 50
+}
+
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name" 
+        },
+      {
+        "type": "select",
+        "id": "name_font_weight",
+        "label": "Customer Name Font Weight",
+        "default": "normal",
+        "options": [
+          { "value": "normal", "label": "Normal" },
+          { "value": "bold", "label": "Bold" }
+        ]
+      },
+        {
+        "type": "range",
+        "id": "name_font_size",
+        "label": "Customer Name Font Size (px)",
+        "min": 12,
+        "max": 36,
+        "step": 1,
+        "default": 18
+      },
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": "Testimonial Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
