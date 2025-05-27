@@ -38,6 +38,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        ".header__inline-menu .list-menu .header__menu-item {font-size: 20px;}"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",

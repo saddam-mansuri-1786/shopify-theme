@@ -1,84 +1,8 @@
-{% stylesheet %}
-.image-slider-wrapper {
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-.image-slider {
-   display: flex;
-  gap: 1rem;
-  transition: transform 0.5s ease;
-  min-width: 100%;
-}
-.image-slide {
-  flex: 0 0 calc(100% / var(--slides-per-view));
-  position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-}
-.image-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: var(--object-fit);
-  border-radius: 8px;
-}
-.image-slide .caption {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0,0,0,0.5);
-  color: white;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-}
-  .image-slider-section {
-  padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);
-}
-  @media (max-width: 767px) {
-  .image-slide {
-    flex: 0 0 calc(100% / var(--slides-per-view-mobile));
-  }
-}
-{% endstylesheet %}
 
-<div 
-  class="image-slider-section page-width" 
-  style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px; padding-top: var(--padding-top); padding-bottom: var(--padding-bottom);"
->
-  {% if section.settings.heading != blank %}
-    <h2>{{ section.settings.heading }}</h2>
-  {% endif %}
-
-  {%- assign fit = section.settings.image_ratio -%}
-  {%- if fit == 'adapt' -%}
-    {%- assign fit = 'cover' -%}
-  {%- endif -%}
-
-  <div 
-  class="image-slider-wrapper" 
-  style="--slides-per-view: {{ section.settings.images_per_row }}; --slides-per-view-mobile: {{ section.settings.images_per_row_mobile }}; --object-fit: {{ fit }};">
-
-    <div class="image-slider" id="image-slider-{{ section.id }}">
-      {% for block in section.blocks %}
-        {% if block.settings.image != blank %}
-          <div class="image-slide">
-            <img 
-              src="{{ block.settings.image | image_url: width: 900 }}" 
-              alt="{{ block.settings.caption | escape }}" 
-              loading="lazy">
-            {% if block.settings.caption != blank %}
-              <div class="caption">{{ block.settings.caption }}</div>
-            {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
 
 {% schema %}
 {
-  "name": "Image Slider",
+  "name": "Image Gallery",
   "settings": [
     {
       "type": "text",
@@ -89,61 +13,56 @@
     {
       "type": "select",
       "id": "image_ratio",
-      "label": "Image ratio",
+      "label": "Image Fit",
       "default": "cover",
       "options": [
-        {
-          "value": "cover",
-          "label": "Cover (Crop to fit)"
-        },
-        {
-          "value": "contain",
-          "label": "Contain (Fit inside)"
-        },
-        {
-          "value": "fill",
-          "label": "Stretch (Not recommended)"
-        }
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" },
+        { "value": "fill", "label": "Stretch" }
       ]
     },
     {
-  "type": "range",
-  "id": "padding_top",
-  "label": "Top Padding (px)",
-  "min": 0,
-  "max": 100,
-  "step": 4,
-  "default": 32
-},
-{
-  "type": "range",
-  "id": "padding_bottom",
-  "label": "Bottom Padding (px)",
-  "min": 0,
-  "max": 100,
-  "step": 4,
-  "default": 32
-},
-
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 32
+    },
     {
       "type": "range",
       "id": "images_per_row",
-      "label": "Images per row (desktop)",
+      "label": "Images Per Row (Desktop)",
       "min": 1,
-      "max": 8,
+      "max": 6,
       "step": 1,
       "default": 3
     },
     {
-  "type": "range",
-  "id": "images_per_row_mobile",
-  "label": "Images per row (mobile)",
-  "min": 1,
-  "max": 3,
-  "step": 1,
-  "default": 1
-  },
-
+      "type": "range",
+      "id": "images_per_row_mobile",
+      "label": "Images Per Row (Mobile)",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default":true
+    }
   ],
   "blocks": [
     {
@@ -158,27 +77,182 @@
         {
           "type": "text",
           "id": "caption",
-          "label": "Caption",
-          "default": "Image caption"
+          "label": "Caption"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Image Slider",
+      "name": "Image Gallery",
       "blocks": [
-        {
-          "type": "image"
-        },
-        {
-          "type": "image"
-        },
-        {
-          "type": "image"
-        }
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
       ]
-    }
+    } 
   ]
 }
 {% endschema %}
+<style>
+  .image-slider-section {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+  }
+
+  .image-slider-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+  }
+
+  .image-slide {
+    flex: 0 0 calc(100% / var(--slides-per-view));
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+
+  .image-slide img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: var(--object-fit);
+    border-radius: 8px;
+    display: block;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    z-index: 2;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .slider-arrow.left {
+    left: 0;
+  }
+
+  .slider-arrow.right {
+    right: 0;
+  }
+
+  @media (max-width: 767px) {
+    .image-slide {
+      flex: 0 0 calc(100% / var(--slides-per-view-mobile));
+    }
+  }
+</style>
+
+<div 
+  class="image-slider-section page-width"
+  style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  {% if section.settings.heading != blank %}
+    <h2>{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  {%- assign fit = section.settings.image_ratio -%}
+  {%- if fit == 'adapt' -%}
+    {%- assign fit = 'cover' -%}
+  {%- endif -%}
+
+  <div 
+    class="image-slider-container"
+    style="--slides-per-view: {{ section.settings.images_per_row }}; --slides-per-view-mobile: {{ section.settings.images_per_row_mobile }}; --object-fit: {{ fit }};"
+  >
+    <button class="slider-arrow left">&#10094;</button>
+
+    <div class="image-slider" id="slider-{{ section.id }}">
+      {% for block in section.blocks %}
+        {% if block.settings.image %}
+          <div class="image-slide">
+            <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.caption | escape }}">
+            {% if block.settings.caption %}
+              <div class="caption">{{ block.settings.caption }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <button class="slider-arrow right">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('slider-{{ section.id }}');
+    const slides = slider.querySelectorAll('.image-slide');
+    const slideCount = slides.length;
+    const slideWidth = slides[0].offsetWidth + 16; // Includes margin
+    const leftBtn = slider.closest('.image-slider-container').querySelector('.slider-arrow.left');
+    const rightBtn = slider.closest('.image-slider-container').querySelector('.slider-arrow.right');
+    let currentIndex = 0;
+    let slidesPerView = window.innerWidth <= 767 ? {{ section.settings.images_per_row_mobile | default: 1 }} : {{ section.settings.images_per_row | default: 3 }};
+
+    
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    leftBtn.addEventListener('click', function () {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      updateSlider();
+    });
+
+    rightBtn.addEventListener('click', function () {
+      const maxIndex = slideCount - parseInt(getComputedStyle(slider.closest('.image-slider-container')).getPropertyValue('--slides-per-view'));
+      currentIndex = Math.min(currentIndex + 1, maxIndex);
+      updateSlider();
+    });
+{% if section.settings.autoplay %}
+    // Auto play
+    let autoplay = setInterval(() => {
+  const maxIndex = slideCount - slidesPerView;
+
+  if (currentIndex >= maxIndex) {
+    currentIndex = 0; // Loop to beginning
+  } else {
+    currentIndex++;
+  }
+  updateSlider();
+}, 4000);
+
+
+    slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+    slider.addEventListener('mouseleave', () => {
+      autoplay = setInterval(() => {
+  const maxIndex = slideCount - slidesPerView;
+
+  if (currentIndex >= maxIndex) {
+    currentIndex = 0; // Loop to beginning
+  } else {
+    currentIndex++;
+  }
+
+  updateSlider();
+}, 4000);
+    });
+    {% endif %}
+  });
+</script>
