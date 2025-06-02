@@ -36,7 +36,7 @@
   .testimonials-slider-container-wrapper {
     max-width: 1090px;
     margin: 0 auto;
-    overflow: hidden; /* Hide overflow for smooth sliding */
+    overflow: hidden; /* Hide overflow  for smooth sliding */
   }
 
   .testimonials-slider-container {
@@ -254,7 +254,8 @@
         {
           "type": "text",
           "id": "name",
-          "label": "Customer Name" 
+          "label": "Customer Name",
+          "default":"-John Deo"
         },
       {
         "type": "select",
@@ -278,14 +279,27 @@
         {
           "type": "textarea",
           "id": "testimonial",
-          "label": "Testimonial Text"
+          "label": "Testimonial Text",
+          "default":"This product completely changed the way I work—highly recommended!"
         }
+    
       ]
     }
   ],
   "presets": [
     {
-      "name": "Testimonials Slider"
+      "name": "Testimonials Slider",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
       
     }
   ]

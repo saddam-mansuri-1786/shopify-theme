@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
-  padding: 3rem 1rem;
+  padding: 0px 10px 60px 10px;
   max-width: var(--page-width, 1200px);
   margin: 0 auto;
 }
@@ -66,12 +66,30 @@
 
 <div class="custom-blog-section {% if section.settings.reverse_layout %}flex-row-reverse{% endif %}">
   <div class="custom-blog-images">
-    {% if section.settings.big_image != blank %}
-      <img src="{{ section.settings.big_image | image_url: width: 800 }}" alt="Big image" class="big-image">
-    {% endif %}
-    {% if section.settings.small_image != blank %}
-      <img src="{{ section.settings.small_image | image_url: width: 300 }}" alt="Small image" class="small-image">
-    {% endif %}
+   
+<!-- Big Image -->
+<img
+  src="{% if section.settings.big_image != blank %}
+    {{ section.settings.big_image | image_url: width: 800 }}
+  {% else %}
+    {{ 'placeholder-images-collection-1.png' | asset_url }}
+  {% endif %}"
+  alt="Big image"
+  class="big-image"
+/>
+
+<!-- Small Image -->
+<img
+  src="{% if section.settings.small_image != blank %}
+    {{ section.settings.small_image | image_url: width: 300 }}
+  {% else %}
+    {{ 'placeholder-images-product-1.png' | asset_url }}
+  {% endif %}"
+  alt="Small image"
+  class="small-image"
+/>
+
+
   </div>
   <div class="custom-blog-text">
     {% if section.settings.heading != blank %}

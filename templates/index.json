@@ -516,6 +516,15 @@
             "name_font_size": 18,
             "testimonial": "This is an amazing product. Highly recommend!"
           }
+        },
+        "testimonial_PTQxRp": {
+          "type": "testimonial",
+          "settings": {
+            "name": "-John Deo",
+            "name_font_weight": "normal",
+            "name_font_size": 18,
+            "testimonial": "This product completely changed the way I work—highly recommended!"
+          }
         }
       },
       "block_order": [
@@ -524,7 +533,8 @@
         "testimonial_VA6E4P",
         "testimonial_hTddgn",
         "testimonial_BrPQmy",
-        "testimonial_ghUJiP"
+        "testimonial_ghUJiP",
+        "testimonial_PTQxRp"
       ],
       "name": "Testimonials Slider",
       "settings": {

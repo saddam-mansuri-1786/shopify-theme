@@ -1,4 +1,4 @@
-{% schema %}
+ {% schema %}
 {
   "name": "Contact Custom Section",
   "settings": [
@@ -41,8 +41,7 @@
     {
       "type": "textarea",
       "id": "google_map_embed",
-      "label": "Google Map Embed Code",
-      "default": "<iframe src='https://maps.google.com/...your-map-link...' width='100%' height='300' style='border:0;' allowfullscreen='' loading='lazy'></iframe>"
+      "label": "Google Map Embed Code"
     }
   ],
   "presets": [
@@ -140,6 +139,18 @@
 
   <div class="contact-form">
     {% form 'contact' %}
+      {% if form.posted_successfully? %}
+  <p class="form-success">Thanks for contacting us! We'll get back to you soon.</p>
+{% endif %}
+
+{% if form.errors %}
+  <ul class="form-errors">
+    {% for field in form.errors %}
+      <li>{{ form.errors.messages[field] }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+     <input type="hidden" name="contact[tags]" value="Contact Us Page">
       <input type="text" name="contact[name]" placeholder="Name" required>
       <input type="email" name="contact[email]" placeholder="Email" required>
       <input type="tel" name="contact[phone]" placeholder="Phone Number">
